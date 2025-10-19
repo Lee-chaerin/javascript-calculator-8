@@ -6,7 +6,7 @@ class App {
     const splited = this.splitInput(input);
     const numbers = this.changeNumber(splited);
     const sum = this.calculator(numbers);
-    Console.print(sum);
+    Console.print(`결과 : ${sum}`);
   }
 
   splitInput(input) {
