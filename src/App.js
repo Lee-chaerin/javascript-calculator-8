@@ -8,8 +8,19 @@ class App {
   }
 
   splitInput(input) {
-    const splited = input.split(/,|:/);
-    return splited;
+    let delimiter = /,|:/;
+    let customDelimiter;
+    const customCheck = input.match(/^\/\/(.+?)\\n/);
+
+    if(customCheck) {
+      customDelimiter = customCheck[1];
+      input = input.slice(customCheck[0].length);
+
+      const regexCustomDelimiter = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      delimiter = new RegExp(`,|:|${regexCustomDelimiter}`, 'g');
+    }
+
+    return input.split(delimiter);
   }
 }
 
