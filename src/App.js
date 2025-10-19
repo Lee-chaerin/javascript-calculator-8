@@ -29,6 +29,14 @@ class App {
       const trimmed = str.trim();
       const value = trimmed === "" ? 0 : parseInt(trimmed);
 
+      if(isNaN(value)) {
+        throw new Error(`[ERROR] 입력값이 잘못되었습니다.`)
+      }
+
+      if(value < 0) {
+        throw new Error(`[ERROR] 입력값이 잘못되었습니다.`)
+      }
+
       return value;
     });
   }
