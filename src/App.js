@@ -5,7 +5,8 @@ class App {
     const input = await Console.readLineAsync("덧셈할 문자열을 입력해 주세요.\n");
     const splited = this.splitInput(input);
     const numbers = this.changeNumber(splited);
-    Console.print(numbers)
+    const sum = this.calculator(numbers);
+    Console.print(sum);
   }
 
   splitInput(input) {
@@ -39,6 +40,10 @@ class App {
 
       return value;
     });
+  }
+
+  calculator(numbers) {
+    return numbers.reduce((acc, cur) => acc + cur, 0);
   }
 }
 
