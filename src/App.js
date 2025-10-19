@@ -26,7 +26,10 @@ class App {
 
   changeNumber(input) {
     return input.map(str => {
-      return parseInt(str);
+      const trimmed = str.trim();
+      const value = trimmed === "" ? 0 : parseInt(trimmed);
+
+      return value;
     });
   }
 }
